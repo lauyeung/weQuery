@@ -17,10 +17,11 @@ feature 'user submits a question' %Q{
     sign_in_as(user)
 
     visit '/'
-    fill_in 'Question', with "What is going on?"
+    fill_in 'Question', with: "What is going on?"
     click_button 'Submit'
 
     expect(page).to have_content('Question successfully posted')
     expect(page).to have_content('What is going on?')
     expect(Question.count).to eql(prev_count + 1)
-  end 
+  end
+end
