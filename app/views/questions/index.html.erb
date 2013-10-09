@@ -1,13 +1,13 @@
 <% if current_user %>
   <h1>Questions</h1>
 
-  <div>
+  <p>
     <%- if @questions != nil -%>
       <%- @questions.each do |question| -%>
         <%= question.content %><br>
       <%- end -%>
     <%- end -%>
-  </div>
+  </p>
 
   <%= simple_form_for(@question) do |f| %>
     <%= f.input :content, label: 'Question' %>
