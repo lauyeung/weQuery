@@ -23,6 +23,7 @@ class QuestionsController < ApplicationController
     vote.user_id = current_user.id
     vote.question_id = question.id
     if vote.save
+      question.check_state?
       redirect_to questions_path
     else
       redirect_to questions_path

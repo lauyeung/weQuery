@@ -4,9 +4,12 @@
   <p>
     <%- if @questions != nil -%>
       <%- @questions.each do |question| -%>
-        <%= question.content %><br>
+        <%= question.content %>
         <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote' %>
-      <%- end -%>
+          <% if question.votes != nil %>
+            <%= question.votes.count %>
+          <%- end -%>
+       <%- end -%>
     <%- end -%>
   </p>
 
