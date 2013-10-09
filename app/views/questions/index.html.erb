@@ -1,16 +1,19 @@
 <% if current_user %>
-  <h1>Questions</h1>
 
+<div class="col-md-4">
+  <h3>Ask a Question</h3>
+  <%= simple_form_for(@question) do |f| %>
+    <%= f.input :content, label_html: { class: "sr-only" } %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+
+<div class="col-md-8">
+  <h3>Submitted Questions</h3>
   <p>
-    <%- if @questions != nil -%>
       <%- @questions.each do |question| -%>
         <%= question.content %><br>
       <%- end -%>
-    <%- end -%>
   </p>
-
-  <%= simple_form_for(@question) do |f| %>
-    <%= f.input :content, label: 'Question' %>
-    <%= f.submit 'Submit' %>
-  <% end %>
+</div>
 <% end %>
