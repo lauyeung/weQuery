@@ -2,8 +2,10 @@
   <h1>Questions</h1>
 
   <div>
-    <%- @questions.each do |question| -%>
-    <%= question.content %><br>
+    <%- if @questions != nil -%>
+      <%- @questions.each do |question| -%>
+        <%= question.content %><br>
+      <%- end -%>
     <%- end -%>
   </div>
 
