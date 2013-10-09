@@ -1,6 +1,13 @@
 WeQuery::Application.routes.draw do
+
+  resources :questions, only: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/invalid/callback', to: 'sessions#invalid'
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+  root 'questions#index'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -39,7 +46,7 @@ WeQuery::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

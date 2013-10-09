@@ -180,6 +180,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy
+  omniauth
   omniauth-github
   pg
   pry-rails
