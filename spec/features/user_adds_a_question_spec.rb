@@ -9,7 +9,7 @@ feature 'user submits a question', %Q{
   # ACCEPTANCE CRITERIA
   # * I will be able to enter a question or topic for clarification
 
-  scenario 'user submits a question' do
+  scenario 'logged-in user specifies a valid question' do
     prev_count = Question.count
 
     login_with_oauth
@@ -23,5 +23,21 @@ feature 'user submits a question', %Q{
     expect(Question.count).to eql(prev_count + 1)
   end
 
-  # scenario 'non-logged-in '
+  scenario 'logged-in user does not specify valid information' do
+    prev_count = Question.count
+
+    login_with_oauth
+
+    visit '/'
+    click_button 'Submit'
+
+    expect(page).to have_content("can't be blank")
+    expect(Question.count).to eql(prev_count)
+  end
+
+  scenario 'non-logged-in user cannot enter question' do
+    visit '/'
+    expect(page).to_not have_content('Questions')
+    expect(page).to_not have_selector("input[type=submit]")
+  end
 end
