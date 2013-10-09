@@ -10,10 +10,9 @@ feature 'user submits a question', %Q{
   # * I will be able to enter a question or topic for clarification
 
   scenario 'user submits a question' do
-    user = FactoryGirl.create(:user)
     prev_count = Question.count
 
-    sign_in_as(user)
+    login_with_oauth
 
     visit '/'
     fill_in 'Question', with: "What is going on?"
