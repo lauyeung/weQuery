@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User, focus: true do
+describe User do
   let(:user) { FactoryGirl.create(:user) }
 
   it 'should anonymize my name!!!' do
