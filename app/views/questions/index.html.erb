@@ -1,11 +1,14 @@
-<h1>Questions</h1>
+<% if current_user %>
+  <h1>Questions</h1>
 
-<%- @questions.each do |question| -%>
-<%= question.content %><br>
-<%- end -%>
+  <div>
+    <%- @questions.each do |question| -%>
+    <%= question.content %><br>
+    <%- end -%>
+  </div>
 
-
-<%= simple_form_for(@question) do |f| %>
-  <%= f.input :content, label: 'Question' %>
-  <%= f.submit 'Submit' %>
-<%- end -%>
+  <%= simple_form_for(@question) do |f| %>
+    <%= f.input :content, label: 'Question' %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+<% end %>

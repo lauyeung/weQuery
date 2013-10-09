@@ -22,4 +22,6 @@ feature 'user submits a question', %Q{
     expect(page).to have_content('What is going on?')
     expect(Question.count).to eql(prev_count + 1)
   end
+
+  # scenario 'non-logged-in '
 end
