@@ -18,8 +18,8 @@ feature 'user upvotes a question', %Q{
     prev_count = new_question.votes.count
     login_with_oauth
     visit '/'
-    click_button '+1'
-
+    save_and_open_page
+    click_on 'vote'
     expect(new_question.votes.count).to eql(prev_count + 1)
   end
 

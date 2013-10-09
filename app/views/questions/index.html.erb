@@ -5,6 +5,7 @@
     <%- if @questions != nil -%>
       <%- @questions.each do |question| -%>
         <%= question.content %><br>
+        <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote' %>
       <%- end -%>
     <%- end -%>
   </p>
@@ -14,3 +15,4 @@
     <%= f.submit 'Submit' %>
   <% end %>
 <% end %>
+
