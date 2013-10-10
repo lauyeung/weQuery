@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
     if current_user && @question.save
       redirect_to questions_path, notice: "Question successfully posted"
     else
+      @questions = Question.all
       render "index"
     end
   end

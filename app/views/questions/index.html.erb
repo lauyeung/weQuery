@@ -1,5 +1,11 @@
 <% if current_user %>
-  <h1>Questions</h1>
+  <div class="col-md-4">
+    <h3>Ask a Question</h3>
+    <%= simple_form_for(@question) do |f| %>
+      <%= f.input :content, label_html: { class: "sr-only" } %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
 
   <p>
     <%- if @questions != nil -%>
@@ -13,9 +19,20 @@
     <%- end -%>
   </p>
 
-  <%= simple_form_for(@question) do |f| %>
-    <%= f.input :content, label: 'Question' %>
-    <%= f.submit 'Submit' %>
-  <% end %>
+ 
+
+  <div class="col-md-8">
+    <h3>Submitted Questions</h3>
+    <p>
+        <%- @questions.each do |question| -%>
+          <%= question.content %><br>
+        <%- end -%>
+    </p>
+  </div>
+<% else %>
+  <div class="col-md-12">
+    <h1><%= link_to "Sign in with GitHub", "/auth/github"%></h1>
+  </div>
+
 <% end %>
 

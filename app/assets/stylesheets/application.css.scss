@@ -1,3 +1,5 @@
+// import original bootstrap
+@import "twitter/bootstrap";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,3 +13,14 @@
  *= require_self
  *= require_tree .
  */
+
+ body {
+  padding-top: 70px;
+}
+
+@media (max-width: 770px) {
+  .navbar-text {
+    float: none;
+    padding: 10px 15px;
+  }
+}

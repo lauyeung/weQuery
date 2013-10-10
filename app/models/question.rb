@@ -14,7 +14,7 @@ class Question < ActiveRecord::Base
       transition :sent => :important
     end
     event :expire do
-      transition :sent => :expired
+      transition [:sent, :important, :asked] => :expired
     end
   
   end
