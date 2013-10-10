@@ -7,24 +7,16 @@
     <% end %>
   </div>
 
-  <p>
-    <%- if @questions != nil -%>
-      <%- @questions.each do |question| -%>
-        <%= question.content %>
-        <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote' %>
-          <% if question.votes != nil %>
-            <%= question.votes.count %>
-          <%- end -%>
-       <%- end -%>
-    <%- end -%>
-  </p>
-
- 
-
-  <div class="col-md-8">
+  <div class="col-md-8" id="question-list">
     <h3>Submitted Questions</h3>
     <p>
         <%- @questions.each do |question| -%>
+          <% if question.votes.pluck(:user_id).include?(current_user.id) %>
+            <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs disabled" %>
+          <% else %>
+            <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs" %>
+          <% end %>
+          <%= question.votes.count %>
           <%= question.content %><br>
         <%- end -%>
     </p>
@@ -35,4 +27,5 @@
   </div>
 
 <% end %>
+
 
