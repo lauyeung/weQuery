@@ -21,6 +21,11 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <% flash.each do |name, msg| %>
+              <%= content_tag :p, msg, class: "navbar-text", id: "flash_#{name}" %>
+            <% end %>
+          </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
@@ -35,9 +40,6 @@
     </div>
 
     <div class="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
       <div class="row">
         <%= yield %>
       </div>
