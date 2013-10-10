@@ -13,28 +13,45 @@ feature 'user upvotes a question', %Q{
   let(:user) { FactoryGirl.create(:user) }
   let(:question) { FactoryGirl.create(:question) }
 
-  scenario 'logged-in user upvotes a question' do
+  scenario 'Question state starts as asked' do
+    
     new_question = question
-    prev_count = new_question.votes.count
+    login_with_oauth
+    visit '/'
+    expect(new_question.state).to eql('asked')
+    
+  end
+
+  scenario 'Question is upvoted 5 times' do
+    new_question = question
+    5.times do |n|
+      Vote.create!(question_id: new_question.id, user_id: n)
+    end
+
     login_with_oauth
     visit '/'
 
     click_on 'vote'
-    expect(new_question.votes.count).to eql(prev_count + 1)
-  end
+     
+    expect(new_question.reload.state).to eql('sent')
+  end 
   
-  scenario 'logged-in user upvotes a question twice' do
+  scenario 'Question is upvoted 10 times' do
     new_question = question
-    prev_count = new_question.votes.count
+    9.times do |n|
+      Vote.create!(question_id: new_question.id, user_id: n)
+    end
+
     login_with_oauth
     visit '/'
-  
+
     click_on 'vote'
-    click_on 'vote'
-    expect(new_question.votes.count).to eql(prev_count + 1)
+     
+    expect(new_question.reload.state).to eql('important')
   end
-
   
-
-
 end
+  
+
+
+

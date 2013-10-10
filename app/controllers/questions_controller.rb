@@ -17,6 +17,22 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def vote
+
+    question = Question.find(params[:question_id])
+    vote = Vote.new()
+    vote.user_id = current_user.id
+    vote.question_id = question.id
+    if vote.save
+      question.check_state?
+      redirect_to questions_path
+    else
+      redirect_to questions_path
+    end
+      
+
+  end
+
   protected
 
   def question_params

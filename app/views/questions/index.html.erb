@@ -7,6 +7,20 @@
     <% end %>
   </div>
 
+  <p>
+    <%- if @questions != nil -%>
+      <%- @questions.each do |question| -%>
+        <%= question.content %>
+        <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote' %>
+          <% if question.votes != nil %>
+            <%= question.votes.count %>
+          <%- end -%>
+       <%- end -%>
+    <%- end -%>
+  </p>
+
+ 
+
   <div class="col-md-8">
     <h3>Submitted Questions</h3>
     <p>
@@ -19,4 +33,6 @@
   <div class="col-md-12">
     <h1><%= link_to "Sign in with GitHub", "/auth/github"%></h1>
   </div>
+
 <% end %>
+
