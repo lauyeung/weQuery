@@ -13,11 +13,11 @@ en:
     # Labels and hints examples
     labels:
       question:
-        content: "Question"
+        body: "Question"
 
     placeholders:
       question:
-        content: "Enter a question here"
+        body: "Enter a question here"
 
   helpers:
     submit:

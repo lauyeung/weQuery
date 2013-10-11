@@ -2,7 +2,7 @@
   <div class="col-md-4">
     <h3>Ask a Question</h3>
     <%= simple_form_for(@question) do |f| %>
-      <%= f.input :content, label_html: { class: "sr-only" } %>
+      <%= f.input :body, label_html: { class: "sr-only" } %>
       <%= f.button :submit %>
     <% end %>
   </div>
@@ -17,7 +17,7 @@
             <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs" %>
           <% end %>
           <%= question.votes.count %>
-          <%= question.content %><br>
+          <%= question.body %><br>
         <%- end -%>
     </p>
   </div>

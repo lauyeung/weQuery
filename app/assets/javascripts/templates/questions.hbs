@@ -1,8 +1,19 @@
-<p>I'm a question</p>
-<p>
+<div class="row">
+  <div class="col-md-4">
+    {{outlet}}
+
+  </div>
+
+<div class="col-md-8">
+  <h1>I'm the Questions Index</h1>
   {{#each}}
+  <p>
     {{state}}
-    {{content}}
-    {{capitalContent}}
-  {{/each}}
-</p>
+    {{body}}
+    {{votes.length}}
+  </p>
+{{/each}}
+</div>
+</div>
+
+

@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :questions,
-    inverse_of: :user
 
-  has_many :votes  
+  has_many :votes
 
   def self.create_from_omniauth(auth)
     create! do |user|
