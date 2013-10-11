@@ -1,15 +1,21 @@
 WeQuery::Application.routes.draw do
 
-  resources :questions do 
-    post "vote"
-  end
+  # resources :questions do
+  #   post "vote"
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/auth/invalid/callback', to: 'sessions#invalid'
-  get 'signout', to: 'sessions#destroy', as: 'signout'
-  root 'questions#index'
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/auth/invalid/callback', to: 'sessions#invalid'
+  # get 'signout', to: 'sessions#destroy', as: 'signout'
+  # root 'questions#index'
+
+  root 'welcome#index'
+
+  namespace :api do
+    resources :questions
+  end
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
