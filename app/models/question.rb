@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
 
 
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   validates_presence_of :body
 
@@ -20,11 +20,10 @@ class Question < ActiveRecord::Base
 
   def check_state?
       check_expiration
-      if self.votes.count >= 5
-        self.deliver!
-      end
-      if self.votes.count >= 7
+      if self.votes.count == 7
         self.make_important!
+      elsif self.votes.count == 5
+        self.deliver!
       end
 
   end

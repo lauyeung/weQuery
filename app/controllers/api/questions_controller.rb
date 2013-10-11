@@ -14,6 +14,17 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def update
+    @question = Question.find(params[:id])
+    @vote = Vote.new({question: @question})
+    if @vote.save
+      @question.check_state?
+      render json: @question
+    else
+      render status: :unprocessable_entity
+    end
+  end
+
   protected
 
   def question_params
