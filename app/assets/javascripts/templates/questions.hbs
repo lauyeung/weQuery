@@ -8,7 +8,6 @@
   <h1>I'm the Questions Index</h1>
   {{#each}}
   <p>
-    {{!-- <button type="submit" class="btn btn-primary btn-xs" {{action 'vote' this target='controllers.vote'}}>+1</button> --}}
     {{render 'votes.new' this}}
     {{state}}
     {{body}}
