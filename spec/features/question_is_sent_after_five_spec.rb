@@ -14,44 +14,22 @@ feature 'user upvotes a question', %Q{
   let(:question) { FactoryGirl.create(:question) }
 
   scenario 'Question state starts as asked' do
-    
     new_question = question
     login_with_oauth
     visit '/'
     expect(new_question.state).to eql('asked')
-    
   end
 
   scenario 'Question is upvoted 5 times' do
     new_question = question
-    5.times do |n|
+    4.times do |n|
       Vote.create!(question_id: new_question.id, user_id: n)
     end
-
     login_with_oauth
     visit '/'
-
     click_on 'vote'
-     
     expect(new_question.reload.state).to eql('sent')
-  end 
-  
-  scenario 'Question is upvoted 10 times' do
-    new_question = question
-    9.times do |n|
-      Vote.create!(question_id: new_question.id, user_id: n)
-    end
-
-    login_with_oauth
-    visit '/'
-
-    click_on 'vote'
-     
-    expect(new_question.reload.state).to eql('important')
   end
-  
+
 end
-  
-
-
 

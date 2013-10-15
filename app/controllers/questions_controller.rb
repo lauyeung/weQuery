@@ -18,7 +18,6 @@ class QuestionsController < ApplicationController
   end
 
   def vote
-
     question = Question.find(params[:question_id])
     vote = Vote.new()
     vote.user_id = current_user.id
@@ -29,8 +28,6 @@ class QuestionsController < ApplicationController
     else
       redirect_to questions_path
     end
-
-
   end
 
   protected

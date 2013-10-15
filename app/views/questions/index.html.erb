@@ -9,24 +9,28 @@
 
   <div class="col-md-8" id="question-list">
     <h3>Submitted Questions</h3>
-    <p>
+    <div id="questions">
         <%- @questions.each do |question| -%>
-        <%- binding.pry -%>
+          <p>
           <% if question.votes.pluck(:user_id).include?(current_user.id) %>
             <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs disabled" %>
           <% else %>
             <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs" %>
           <% end %>
           <%= question.votes.count %>
-          <%= question.body %><br>
+          <%= question.body %>
+          </p>
         <%- end -%>
-    </p>
+    </div>
   </div>
 <% else %>
   <div class="col-md-12">
     <h1><%= link_to "Sign in with GitHub", "/auth/github"%></h1>
   </div>
-
 <% end %>
 
-
+<script type="text/javascript">
+  // setInterval(getStuff, 60000);
+  // $ajax.get(theurl)
+  // $(#questions).html(response)
+</script>
