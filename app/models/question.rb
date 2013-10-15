@@ -1,10 +1,11 @@
 class Question < ActiveRecord::Base
   belongs_to :user,
     inverse_of: :questions
-  
-  has_many :votes
-  
-  validates_presence_of :content
+
+  has_many :votes,
+    inverse_of: :question
+
+  validates_presence_of :body
 
   state_machine initial: :asked do
     event :deliver do
@@ -16,18 +17,18 @@ class Question < ActiveRecord::Base
     event :expire do
       transition [:sent, :important, :asked] => :expired
     end
-  
+
   end
 
   def check_state?
       check_expiration
-      if self.votes.count >= 5  
-        self.deliver!      
+      if self.votes.count >= 5
+        self.deliver!
       end
-      if self.votes.count >= 7 
-        self.make_important!      
+      if self.votes.count >= 7
+        self.make_important!
       end
-    
+
   end
 
   def check_expiration

@@ -29,14 +29,14 @@ class QuestionsController < ApplicationController
     else
       redirect_to questions_path
     end
-      
+
 
   end
 
   protected
 
   def question_params
-    params.require(:question).permit(:content)
+    params.require(:question).permit(:body)
   end
 
 end
