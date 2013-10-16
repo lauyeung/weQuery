@@ -31,11 +31,19 @@
 <% end %>
 
 <script type="text/javascript">
-  var int=self.setInterval(function(){getQuestions()},5000);
+  setInterval(function(){getQuestions()},5000);
   function getQuestions()
   {
-    $.get("/", function(data){
-      $("#result").html(data);
+    $.get("api/questions", function(data){
+      var htmlStuff = '';
+      for(var i=0; i < data.questions.length; i++){
+        if (data.questions[i].user_votes == true){
+        htmlStuff += "<p>  <a class='btn btn-default btn-xs disabled' data-method='post' href='/questions/"+ data.questions[i].id +"/vote' id='vote' rel='nofollow'>+1</a> " + data.questions[i].votes_count + " <span class='question_state'>" + data.questions[i].state + "</span> " + data.questions[i].body + "</p> "
+        } else {
+          htmlStuff += "<p>  <a class='btn btn-default btn-xs' data-method='post' href='/questions/"+ data.questions[i].id +"/vote' id='vote' rel='nofollow'>+1</a> " + data.questions[i].votes_count + " <span class='question_state'>" + data.questions[i].state + "</span> " + data.questions[i].body + "</p> "
+        };
+      }
+      $("#questions").html(htmlStuff);
     });
   }
 </script>

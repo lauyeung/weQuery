@@ -30,6 +30,10 @@ class Question < ActiveRecord::Base
 
   end
 
+  def active_model_serializer
+    QuestionSerializer
+  end
+
   def check_expiration
     expired = Question.where('created_at <= ?', 1.day.ago)
     expired.each do |question|
