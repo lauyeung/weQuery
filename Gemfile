@@ -27,6 +27,8 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'active_model_serializers'
+
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'omniauth-github'
 gem 'omniauth'

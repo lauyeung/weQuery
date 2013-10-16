@@ -1,0 +1,14 @@
+<h3>Questions</h3>
+
+<div>
+<h5>IMPORTANT</h5>
+<% @important_questions.each do |important_question| %>
+<%= important_question.votes.count %> <%= important_question.body %><br>
+<% end %>
+</div>
+<div>
+<h5>SENT</h5>
+<% @sent_questions.each do |sent_question| %>
+<%= sent_question.votes.count %> <%= sent_question.body %><br>
+<% end %>
+</div>

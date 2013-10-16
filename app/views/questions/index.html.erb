@@ -2,30 +2,48 @@
   <div class="col-md-4">
     <h3>Ask a Question</h3>
     <%= simple_form_for(@question) do |f| %>
-      <%= f.input :content, label_html: { class: "sr-only" } %>
-      <%= f.button :submit %>
+      <%= f.input :body, label_html: { class: "sr-only" } %>
+      <%= f.button :submit, class: 'btn-primary' %>
     <% end %>
   </div>
 
   <div class="col-md-8" id="question-list">
     <h3>Submitted Questions</h3>
-    <p>
+    <div id="questions">
         <%- @questions.each do |question| -%>
+          <p>
           <% if question.votes.pluck(:user_id).include?(current_user.id) %>
             <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs disabled" %>
           <% else %>
             <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs" %>
           <% end %>
           <%= question.votes.count %>
-          <%= question.content %><br>
+          <span class='question_state'><%= question.state %></span>
+          <%= question.body %>
+          </p>
         <%- end -%>
-    </p>
+    </div>
   </div>
 <% else %>
   <div class="col-md-12">
     <h1><%= link_to "Sign in with GitHub", "/auth/github"%></h1>
   </div>
-
 <% end %>
 
-
+<script type="text/javascript">
+  setInterval(function(){getQuestions()},5000);
+  function getQuestions()
+  {
+    $.get("api/questions", function(data){
+      var htmlStuff = '';
+      for(var i=0; i < data.questions.length; i++){
+        if (data.questions[i].user_votes == true){
+        htmlStuff += "<p>  <a class='btn btn-default btn-xs disabled' data-method='post' href='/questions/"+ data.questions[i].id +"/vote' id='vote' rel='nofollow'>+1</a> " + data.questions[i].votes_count + " <span class='question_state'>" + data.questions[i].state + "</span> " + data.questions[i].body + "</p> "
+        } else {
+          htmlStuff += "<p>  <a class='btn btn-default btn-xs' data-method='post' href='/questions/"+ data.questions[i].id +"/vote' id='vote' rel='nofollow'>+1</a> " + data.questions[i].votes_count + " <span class='question_state'>" + data.questions[i].state + "</span> " + data.questions[i].body + "</p> "
+        };
+      }
+      $("#questions").html(htmlStuff);
+    });
+  }
+</script>

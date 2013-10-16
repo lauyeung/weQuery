@@ -3,6 +3,7 @@ class QuestionsController < ApplicationController
   def index
     @question = Question.new
     @questions = Question.all
+
   end
 
   def create
@@ -18,7 +19,6 @@ class QuestionsController < ApplicationController
   end
 
   def vote
-
     question = Question.find(params[:question_id])
     vote = Vote.new()
     vote.user_id = current_user.id
@@ -29,14 +29,12 @@ class QuestionsController < ApplicationController
     else
       redirect_to questions_path
     end
-      
-
   end
 
   protected
 
   def question_params
-    params.require(:question).permit(:content)
+    params.require(:question).permit(:body)
   end
 
 end
