@@ -1,6 +1,7 @@
 class Vote < ActiveRecord::Base
 
 belongs_to :question,
+    counter_cache: true,
     inverse_of: :votes
 
 belongs_to :user,
