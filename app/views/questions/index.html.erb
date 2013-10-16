@@ -18,6 +18,7 @@
             <%= link_to '+1', question_vote_path(question.id),method: :post, id: 'vote', class: "btn btn-default btn-xs" %>
           <% end %>
           <%= question.votes.count %>
+          <span class='question_state'><%= question.state %></span>
           <%= question.body %>
           </p>
         <%- end -%>
@@ -30,7 +31,11 @@
 <% end %>
 
 <script type="text/javascript">
-  // setInterval(getStuff, 60000);
-  // $ajax.get(theurl)
-  // $(#questions).html(response)
+  var int=self.setInterval(function(){getQuestions()},5000);
+  function getQuestions()
+  {
+    $.get("/", function(data){
+      $("#result").html(data);
+    });
+  }
 </script>
