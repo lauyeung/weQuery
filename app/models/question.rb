@@ -3,7 +3,8 @@ class Question < ActiveRecord::Base
     inverse_of: :questions
 
   has_many :votes,
-    inverse_of: :question
+    inverse_of: :question,
+    dependent: :destroy
 
   validates_presence_of :body
 
@@ -27,7 +28,6 @@ class Question < ActiveRecord::Base
       elsif self.votes.count == 5
         self.deliver!
       end
-
   end
 
   def active_model_serializer

@@ -3,7 +3,7 @@
     <h3>Ask a Question</h3>
     <%= simple_form_for(@question) do |f| %>
       <%= f.input :body, label_html: { class: "sr-only" } %>
-      <%= f.button :submit %>
+      <%= f.button :submit, class: 'btn-primary' %>
     <% end %>
   </div>
 
