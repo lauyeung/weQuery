@@ -1,8 +1,9 @@
 class QuestionsController < ApplicationController
 
   def index
+    Question.check_expiration
     @question = Question.new
-    @questions = Question.all.order("votes_count DESC")
+    @questions = Question.where("state != ?", "expired").order("votes_count DESC")
 
   end
 
