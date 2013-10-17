@@ -10,7 +10,7 @@ FactoryGirl.define do
   end
 
   factory :question do
-    sequence(:content) {|n| "question content #{n}??" }
+    sequence(:body) {|n| "question body #{n}??" }
     association :user
   end
 end
