@@ -47,6 +47,7 @@ group :development, :test do
   gem "capybara"
   gem 'factory_girl'
   gem 'launchy'
+  gem 'timecop'
 end
 
 # Use ActiveModel has_secure_password
