@@ -5,7 +5,7 @@ class AddVotesCountToQuestions < ActiveRecord::Migration
     Question.reset_column_information
 
     Question.all.each do |question|
-    Question.update_counters(question.id, votes_count: question.votes.count)
+      Question.update_counters(question.id, votes_count: question.votes.count)
     end
   end
 end
