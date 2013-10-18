@@ -22,7 +22,6 @@ class Question < ActiveRecord::Base
   end
 
   def check_state?
-      check_expiration
       if self.votes.count == 7
         self.make_important!
       elsif self.votes.count == 5
@@ -34,8 +33,8 @@ class Question < ActiveRecord::Base
     QuestionSerializer
   end
 
-  def check_expiration
-    expired = Question.where('created_at <= ?', 1.day.ago)
+  def self.check_expiration
+    expired = Question.where('created_at <= ?', 1.hour.ago)
     expired.each do |question|
       question.expire
     end
