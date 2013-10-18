@@ -5,11 +5,18 @@ describe Question do
   it { should_not have_valid(:body).when(nil, '') }
 
   describe '#check_state' do
-    it 'doesnt transition to sent' do
+    it 'has a state of asked' do
       question = FactoryGirl.create(:question)
-
       expect(question.state).to eql('asked')
-      end
+    end
 
+    it 'transitions to expired' do
+      question = FactoryGirl.create(:question)
+      old_time = Time.now
+      Timecop.freeze(Time.now + 2.hours) do
+        Question.check_expiration
+        expect(question.reload.state).to eql('expired')
+      end
+    end
   end
 end
