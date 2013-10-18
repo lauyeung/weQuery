@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
 
+
   def index
     Question.check_expiration
     @question = Question.new
@@ -37,5 +38,6 @@ class QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:body)
   end
+
 
 end
