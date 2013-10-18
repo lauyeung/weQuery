@@ -33,10 +33,23 @@ class Question < ActiveRecord::Base
     QuestionSerializer
   end
 
-  def self.check_expiration
-    expired = Question.where('created_at <= ?', 1.hour.ago)
-    expired.each do |question|
-      question.expire
+  class << self
+
+    def importance(importance)
+      Question.where(state: importance).order("votes_count DESC, created_at")
     end
+
+    def non_expired
+      check_expiration
+      Question.where("state != ?", "expired").order("votes_count DESC, created_at")
+    end
+
+    def check_expiration
+      expired = Question.where('created_at <= ?', 1.hour.ago)
+      expired.each do |question|
+        question.expire
+      end
+    end
+
   end
 end

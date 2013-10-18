@@ -1,10 +1,8 @@
 class QuestionsController < ApplicationController
 
   def index
-    Question.check_expiration
     @question = Question.new
-    @questions = Question.where("state != ?", "expired").order("votes_count DESC, created_at")
-
+    @questions = Question.non_expired
   end
 
   def create
