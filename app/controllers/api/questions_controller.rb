@@ -1,7 +1,7 @@
 class Api::QuestionsController < ApplicationController
 
   def index
-    @questions = Question.where("state != ?", "expired").order("votes_count DESC, created_at")
+    @questions = Question.non_expired
     render json: @questions
   end
 
