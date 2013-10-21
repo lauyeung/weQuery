@@ -24,6 +24,10 @@ Dashboard
 ===================
 ![dashboard](https://lh6.googleusercontent.com/-6aP72iKzYkQ/UmW5G3E4tEI/AAAAAAAAAAs/oV_-8YYCU8o/w954-h464-no/weQuerydashboard.png)
 
+weQuery Feed
+===================
+![question feed](https://lh4.googleusercontent.com/-venvfxTgbqQ/UmW5G8ZWgUI/AAAAAAAAAAw/Js-WKNVRAHE/w954-h464-no/weQueryquestionsfeed.png)
+
 ER Diagram
 -------------------
 ![wequery-er-diagram](https://lh5.googleusercontent.com/-0ZoiynL799Q/UmWt3JtJ_GI/AAAAAAAANXk/DoOFzwpbCxY/w386-h305-no/wequery_er_diagram.png)
