@@ -18,7 +18,7 @@ Technical Requirements
 
 Welcome
 ===================
-![front page](https://lh4.googleusercontent.com/FYOrr41hefiYv-STcpPMjrpvBWapoafLp3POHwa78g=w139-h68-p-no)
+![front page](https://lh5.googleusercontent.com/-1GNLCvg2R58/UmW5G1nbMZI/AAAAAAAAAA0/JuekXWCo4jw/w489-h238-no/weQueryfrontpage.png)
 
 Dashboard
 ===================
