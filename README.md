@@ -31,3 +31,12 @@ Next steps
 * Build out more extensive admin section
 * Implement a more real-time solution (e.g. [sync](https://github.com/chrismccord/sync), [pusher](https://github.com/pusher/pusher-gem))
 * Keep working on Ember!
+
+Collaborators
+-------------------
+* [Louise Au Yeung](https://github.com/lauyeung)
+* [Ashley Basinger](https://github.com/ashleytbasinger)
+* [Liz Glavin](https://github.com/LGlavin)
+* [Dhruv Mehrotra](https://github.com/dmehrotra)
+
+Team led by [Sam McTaggart](https://github.com/wannabefro)
