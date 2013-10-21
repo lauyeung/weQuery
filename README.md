@@ -16,6 +16,14 @@ Technical Requirements
 * PostgreSQL (<tt>rake db:migrate</tt> to set up the database, run <tt>rake db:test:prepare</tt> to set up the test database)
 * Run tests using <tt>rake spec</tt> or <tt>rspec [TEST TO RUN]</tt>
 
+Welcome
+___________________
+![front page]("weQueryfrontpage.png")
+
+Dashboard
+___________________
+![dashboard]("weQuerydashboard.png")
+
 ER Diagram
 -------------------
 ![wequery-er-diagram](https://lh5.googleusercontent.com/-0ZoiynL799Q/UmWt3JtJ_GI/AAAAAAAANXk/DoOFzwpbCxY/w386-h305-no/wequery_er_diagram.png)
