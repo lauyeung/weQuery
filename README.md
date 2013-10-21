@@ -1,7 +1,9 @@
 weQuery README
 ===================
 
-weQuery allows you to set up anonymous question asking from your users. Questions can then be upvoted by other users (live at [wequery.herokuapp.com](http://wequery.herokuapp.com/)).
+weQuery allows you to set up anonymous question asking from your users. Questions can then be upvoted by other users. Once the question reaches 5 votes, they are shown in the admin's dashboard so the instructor knows what questions to address. Questions automatically expire after 1 hour.
+
+Live at [wequery.herokuapp.com](http://wequery.herokuapp.com/).
 
 Technical Requirements
 -------------------
