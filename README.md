@@ -18,11 +18,11 @@ Technical Requirements
 
 Welcome
 ===================
-![front page](https://lh5.googleusercontent.com/-1GNLCvg2R58/UmW5G1nbMZI/AAAAAAAAAA0/JuekXWCo4jw/w489-h238-no/weQueryfrontpage.png)
+![front page](https://lh5.googleusercontent.com/-1GNLCvg2R58/UmW5G1nbMZI/AAAAAAAAAA0/JuekXWCo4jw/w954-h464-no/weQueryfrontpage.png)
 
 Dashboard
 ===================
-![dashboard]("weQuerydashboard.png")
+![dashboard](https://lh6.googleusercontent.com/-6aP72iKzYkQ/UmW5G3E4tEI/AAAAAAAAAAs/oV_-8YYCU8o/w954-h464-no/weQuerydashboard.png)
 
 ER Diagram
 -------------------
