@@ -17,11 +17,11 @@ Technical Requirements
 * Run tests using <tt>rake spec</tt> or <tt>rspec [TEST TO RUN]</tt>
 
 Welcome
-___________________
-![front page]("weQueryfrontpage.png")
+===================
+![front page](https://lh4.googleusercontent.com/FYOrr41hefiYv-STcpPMjrpvBWapoafLp3POHwa78g=w139-h68-p-no)
 
 Dashboard
-___________________
+===================
 ![dashboard]("weQuerydashboard.png")
 
 ER Diagram
