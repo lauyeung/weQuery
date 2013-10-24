@@ -9,6 +9,15 @@ FactoryGirl.define do
     oauth_secret "secret"
   end
 
+  factory :admin_user do
+    provider "github"
+    sequence(:uid) {|n| "#{n}" }
+    sequence(:name) {|n| "person#{n}" }
+    oauth_token "token"
+    oauth_secret "secret"
+    admin true
+  end
+
   factory :question do
     sequence(:body) {|n| "question body #{n}??" }
     association :user

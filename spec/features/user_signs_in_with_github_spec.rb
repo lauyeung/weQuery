@@ -11,7 +11,6 @@ So that I can provide authentication to the API
 
   scenario 'I sign in successfully' do
     login_with_oauth
-
     expect(page).to have_content("Sign out")
   end
 

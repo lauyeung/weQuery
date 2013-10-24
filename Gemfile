@@ -48,6 +48,8 @@ group :development, :test do
   gem 'factory_girl'
   gem 'launchy'
   gem 'timecop'
+  gem 'rake'
+  gem 'coveralls', require: false
 end
 
 group :production do
