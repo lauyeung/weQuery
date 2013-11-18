@@ -10,14 +10,16 @@ feature 'user submits a question', %Q{
   # * I will be able to enter a question or topic for clarification
 
   scenario 'logged-in user specifies a valid question' do
-    prev_count = Question.count
     login_with_oauth
     visit '/'
     fill_in 'Body', with: "What is going on?"
     click_button 'Submit'
     expect(page).to have_content('Question successfully posted')
-    expect(page).to have_content('What is going on?')
-    expect(Question.count).to eql(prev_count + 1)
+    expect(page).to have_css('#questions', text: 'What is going on?')
+
+    within '#questions' do
+      expect(page).to have_content('What is going on?')
+    end
   end
 
   scenario 'logged-in user does not specify valid information' do
